@@ -1,7 +1,7 @@
 import pandas as pd
 from docxtpl import DocxTemplate
 
-data = pd.read_excel('data.xlsx')
+data = pd.read_excel('data.xls')
 dict_list = data.to_dict(orient="records")
 """
 dict_list = [{'姓名': '张三', '性别': '男', '专业': '网络工程'},
@@ -11,4 +11,5 @@ dict_list = [{'姓名': '张三', '性别': '男', '专业': '网络工程'},
 for i in dict_list:
     tpl = DocxTemplate('temp.docx')
     tpl.render(i)
-    tpl.save(i['姓名']+'.docx')
+    print('生成'+i['a1'])
+    tpl.save("doc/"+i['a0']+'_'+i['a1']+'.docx')
